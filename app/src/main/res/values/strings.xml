@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ASKSA</string>
+    <string name="nouveau">Nouveau</string>
+    <string name="quitter">Quitter</string>
+    <string name="personne_morale">Personne morale</string>
+    <string name="personne_physique">Personne physique</string>
+    <string name="nouvelle">Nouvelle</string>
+</resources>

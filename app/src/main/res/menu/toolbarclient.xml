@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/tb_client_newpp"
+        android:title="@string/nouveau"
+        android:icon="@drawable/ic_client_add"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/tb_client_new"
+        android:title="@string/nouvelle"
+        app:showAsAction="never">
+        <menu>
+            <item
+                android:id="@+id/tb_client_sb_newpm"
+                android:title="@string/personne_morale"/>
+            <item
+                android:id="@+id/tb_client_sb_newpp"
+                android:title="@string/personne_physique"
+                />
+        </menu>
+
+        </item>
+    <item
+        android:id="@+id/tb_client_quit"
+        android:title="@string/quitter"
+        />
+</menu>
