@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".vue.ListeClientActivity" android:parentActivityName=".vue.MainActivity" android:label="Liste des clients"></activity>
+        <activity android:name=".vue.FormClientppActivity" android:label="Noue"></activity>
+        <activity
+            android:name=".vue.ListeClientActivity"
+            android:label="Liste des clients"
+            android:parentActivityName=".vue.MainActivity" />
         <activity android:name=".vue.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

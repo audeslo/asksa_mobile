@@ -7,30 +7,30 @@
     tools:context=".vue.MainActivity">
 
     <Button
-        android:id="@+id/BTN_Nouveau"
+        android:id="@+id/bt_nouveau"
         android:layout_width="175dp"
         android:layout_height="75dp"
         android:layout_marginBottom="80dp"
         android:text="Nouvelle Vente"
-        app:layout_constraintBottom_toTopOf="@+id/BTN_Historique"
+        app:layout_constraintBottom_toTopOf="@+id/bt_historique"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/BTN_Historique"
+        android:id="@+id/bt_historique"
         android:layout_width="160dp"
         android:layout_height="66dp"
         android:layout_marginBottom="68dp"
         android:text="Historique des Ventes"
-        app:layout_constraintBottom_toTopOf="@+id/BTN_Quitter"
+        app:layout_constraintBottom_toTopOf="@+id/bt_quitter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/BTN_Quitter"
+        android:id="@+id/bt_quitter"
         android:layout_width="159dp"
         android:layout_height="50dp"
         android:layout_marginBottom="184dp"

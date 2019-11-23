@@ -5,4 +5,6 @@
     <string name="personne_morale">Personne morale</string>
     <string name="personne_physique">Personne physique</string>
     <string name="nouvelle">Nouvelle</string>
+    <string name="valider">Valider</string>
+    <string name="annuler">Annuler</string>
 </resources>
