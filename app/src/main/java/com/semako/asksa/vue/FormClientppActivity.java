@@ -43,8 +43,8 @@ public class FormClientppActivity extends AppCompatActivity {
         // Ajout de validation aux champs
         awesomeValidation.addValidation(this,R.id.et_nom,
                 RegexTemplate.NOT_EMPTY,R.string.ivalide_nom);
-        awesomeValidation.addValidation(this,R.id.et_email,
-                Patterns.EMAIL_ADDRESS,R.string.invalide_email);
+        /*awesomeValidation.addValidation(this,R.id.et_email,
+                Patterns.EMAIL_ADDRESS,R.string.invalide_email);*/
         awesomeValidation.addValidation(this,R.id.et_telephone,
                 "[6-9]{2}[0-9]{6}$",R.string.invalide_phone);
 
