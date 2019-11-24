@@ -32,30 +32,23 @@ private Button mbt_client_newpp;
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Intent form_clientpm = new Intent(ListeClientActivity.this,FormClientpmActivity.class);
+        Intent form_clientpp = new Intent(ListeClientActivity.this,FormClientppActivity.class);
         switch (item.getItemId())
         {
             case R.id.tb_client_newpp:
-
-                mbt_client_newpp.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent form_clientpp = new Intent(ListeClientActivity.this,FormClientppActivity.class);
-                        startActivity(form_clientpp);
-                    }
-                });
-
+               startActivity(form_clientpp);
                 return true;
 
             case R.id.tb_client_new:
-                Toast.makeText(this,"Créatiion dual",Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.tb_client_sb_newpm:
-                Toast.makeText(this,"Créatiion sub pm",Toast.LENGTH_SHORT).show();
+                startActivity(form_clientpm);
                 return true;
 
             case R.id.tb_client_sb_newpp:
-                Toast.makeText(this,"Créatiion sub pp",Toast.LENGTH_SHORT).show();
+                startActivity(form_clientpp);
                 return true;
 
             case R.id.tb_client_quit:

@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".vue.FormClientppActivity" android:label="Noue"></activity>
+        <activity android:name=".vue.FormClientpmActivity" android:label="Personne morale"
+            android:parentActivityName=".vue.ListeClientActivity"></activity>
+        <activity
+            android:name=".vue.FormClientppActivity"
+            android:label="Personne physique"
+            android:parentActivityName=".vue.ListeClientActivity" />
         <activity
             android:name=".vue.ListeClientActivity"
             android:label="Liste des clients"

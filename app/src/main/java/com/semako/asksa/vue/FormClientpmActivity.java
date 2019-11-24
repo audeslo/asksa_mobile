@@ -3,7 +3,6 @@ package com.semako.asksa.vue;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,11 +13,10 @@ import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.semako.asksa.R;
 
-public class FormClientppActivity extends AppCompatActivity {
+public class FormClientpmActivity extends AppCompatActivity {
 
-    // Initialisation des variables
-
-    private EditText etNom, etPrenom, etTelephone, etEmail, etAdresse;
+   // Initialisation des variables
+    private EditText etRaison, etIfu, etTelephone, etEmail, etAdresse;
     private Button btValider, btAnnuler;
 
     AwesomeValidation awesomeValidation;
@@ -26,38 +24,34 @@ public class FormClientppActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_clientpp);
+        setContentView(R.layout.activity_form_clientpm);
 
-        // Assignation des variable
-        etNom       =   findViewById(R.id.et_nom);
-        etPrenom    =   findViewById(R.id.et_prenom);
+        //Assignation des variables
+        etRaison    =   findViewById(R.id.et_raison);
+        etIfu       =   findViewById(R.id.et_ifu);
         etTelephone =   findViewById(R.id.et_telephone);
         etEmail     =   findViewById(R.id.et_email);
         etAdresse   =   findViewById(R.id.et_adresse);
         btValider   =   findViewById(R.id.bt_valider);
         btAnnuler   =   findViewById(R.id.bt_annuler);
 
-        // initialisation de style de Validation
-        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+        // Initialiser le style de validation
+
+        awesomeValidation   =   new AwesomeValidation(ValidationStyle.BASIC);
 
         // Ajout de validation aux champs
-        awesomeValidation.addValidation(this,R.id.et_nom,
-                RegexTemplate.NOT_EMPTY,R.string.ivalide_nom);
-        awesomeValidation.addValidation(this,R.id.et_email,
-                Patterns.EMAIL_ADDRESS,R.string.invalide_email);
+        awesomeValidation.addValidation(this, R.id.et_raison,
+                RegexTemplate.NOT_EMPTY,R.string.invalide_raison);
         awesomeValidation.addValidation(this,R.id.et_telephone,
                 "[6-9]{2}[0-9]{6}$",R.string.invalide_phone);
-
+        // Test de validation
         btValider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Verification de validation
                 if (awesomeValidation.validate()){
-                    // succes
-                    Toast.makeText(FormClientppActivity.this,
-                            "Formulaire validé avec succès", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(FormClientppActivity.this, "Formulaire Invalide", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FormClientpmActivity.this, "Formulaire valide ....", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(FormClientpmActivity.this, "Formulaire invalide", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -7,4 +7,8 @@
     <string name="nouvelle">Nouvelle</string>
     <string name="valider">Valider</string>
     <string name="annuler">Annuler</string>
+    <string name="ivalide_nom">Veuillez renseigner le nom</string>
+    <string name="invalide_email">Renseigner un mail valide</string>
+    <string name="invalide_phone">Renseigner numéro téléphonique valide</string>
+    <string name="invalide_raison">Renseigner la raison sociale</string>
 </resources>
