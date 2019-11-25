@@ -2,6 +2,8 @@ package com.semako.asksa.vue;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,10 +19,22 @@ import com.semako.asksa.R;
 public class ListeClientActivity extends AppCompatActivity {
 private Button mbt_client_newpp;
 
+        RecyclerView recyclerView;
+        RecyclerAdapter recyclerAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_client);
+
+        // RecycleView
+        recyclerView    =   findViewById(R.id.rcv_ListeClient);
+        recyclerAdapter = new RecyclerAdapter();
+
+        //recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        recyclerView.setAdapter(recyclerAdapter);
+
     }
 
     @Override
