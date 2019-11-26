@@ -67,6 +67,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
             itemView.setOnClickListener(this);
 
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    movieslist.remove(getAdapterPosition());
+                    notifyItemRemoved(getAdapterPosition());
+
+                    return true;
+                }
+            });
+
         }
 
         @Override
