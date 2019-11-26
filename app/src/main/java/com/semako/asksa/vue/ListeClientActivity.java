@@ -2,6 +2,7 @@ package com.semako.asksa.vue;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,18 +37,6 @@ private Button mbt_client_newpp;
         movieslist = new ArrayList<>();
 
 
-        // RecycleView
-        recyclerView    =   findViewById(R.id.rcv_ListeClient);
-        recyclerAdapter = new RecyclerAdapter(movieslist);
-
-        //recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        recyclerView.setAdapter(recyclerAdapter);
-
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
-
-        recyclerView.addItemDecoration(dividerItemDecoration);
-
         movieslist.add("2 face");
         movieslist.add("house on the rock");
         movieslist.add("Stalker");
@@ -69,12 +58,41 @@ private Button mbt_client_newpp;
         movieslist.add("hanter shadow");
         movieslist.add("Life of Badmos");
 
+        // RecycleView
+        recyclerView    =   findViewById(R.id.rcv_ListeClient);
+        recyclerAdapter = new RecyclerAdapter(movieslist);
+
+        //recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        recyclerView.setAdapter(recyclerAdapter);
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
+
+        recyclerView.addItemDecoration(dividerItemDecoration);
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater toolbarclient = getMenuInflater();
         toolbarclient.inflate(R.menu.toolbarclient,menu);
+
+        MenuItem item = menu.findItem(R.id.tb_client_search);
+        SearchView searchView = (SearchView) item.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                recyclerAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+
         return true;
     }
 
@@ -84,7 +102,7 @@ private Button mbt_client_newpp;
         Intent form_clientpp = new Intent(ListeClientActivity.this,FormClientppActivity.class);
         switch (item.getItemId())
         {
-            case R.id.tb_client_newpp:
+            case R.id.tb_client_ventes:
                startActivity(form_clientpp);
                 return true;
 
