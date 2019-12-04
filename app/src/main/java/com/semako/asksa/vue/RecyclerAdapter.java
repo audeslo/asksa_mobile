@@ -2,14 +2,11 @@ package com.semako.asksa.vue;
 
 
 import android.content.Context;
-import android.view.ContextMenu;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,8 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.semako.asksa.Client;
 import com.semako.asksa.R;
 
-import java.util.ArrayList;
 import java.util.List;
+
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
@@ -54,6 +51,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
         holder.rcvTelephone.setText(clientList.get(position).getTelephone());
 
+
     }
 
     @Override
@@ -72,15 +70,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             rcvNomcomplet   = itemView.findViewById(R.id.rc_NomComplet);
             rcvTelephone    = itemView.findViewById(R.id.rcv_Telephone);
 
+            // parentLayout
             itemView.setOnClickListener(this);
         }
-
         @Override
         public void onClick(View v) {
-            Toast.makeText(v.getContext(), clientList.get(getAdapterPosition()).getIdentifiant1(), Toast.LENGTH_SHORT).show();
+
+            Intent venteActivity = new Intent(v.getContext(), ScanCodeActivity.class);
+            v.getContext().startActivity(venteActivity);
+            //Toast.makeText(v.getContext(), clientList.get(getAdapterPosition()).getIdentifiant1(), Toast.LENGTH_SHORT).show();
         }
     }
-
 
 
 

@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mbt_nouveau = findViewById(R.id.bt_nouveau);
+        mbt_nouveau = findViewById(R.id.bt_nouvelleVente);
 
         mbt_nouveau.setOnClickListener(new View.OnClickListener() {
             @Override
