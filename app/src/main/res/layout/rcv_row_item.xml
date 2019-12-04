@@ -20,20 +20,20 @@
         app:srcCompat="@mipmap/ic_launcher" />
 
     <TextView
-        android:id="@+id/rc_Nom"
+        android:id="@+id/rc_NomComplet"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="8dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toTopOf="@+id/rcv_RowCount"
+        app:layout_constraintBottom_toTopOf="@+id/rcv_Telephone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/rcv_RowCount"
+        android:id="@+id/rcv_Telephone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -41,6 +41,6 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/rc_Nom"
-        app:layout_constraintTop_toBottomOf="@+id/rc_Nom" />
+        app:layout_constraintStart_toStartOf="@+id/rc_NomComplet"
+        app:layout_constraintTop_toBottomOf="@+id/rc_NomComplet" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,135 +1,74 @@
 package com.semako.asksa.vue;
 
-import android.util.Log;
+
+import android.content.Context;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.semako.asksa.Client;
 import com.semako.asksa.R;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> implements Filterable {
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder>  {
 
-    private static final String TAG = "RecyclerAdapter";
-   // int count=0;
+    private List<Client> clientList;
+    private Context     context;
 
-    List<String> movieslist;
-    List<String> moviesListAll;
-
-    public RecyclerAdapter(List<String> movieslist) {
-        this.movieslist = movieslist;
-        this.moviesListAll = new ArrayList<>(movieslist);
-    }
-
-    @NonNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-       // Log.i(TAG, "onCreateViewHolder: "+ count++);
-
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.rcv_row_item, parent,false);
-        ViewHolder viewHolder = new ViewHolder(view);
-
-        return viewHolder;
-
+    public RecyclerAdapter(List<Client> clientList, Context context) {
+        this.clientList = clientList;
+        this.context = context;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rcv_row_item,parent,false);
 
-        holder.rcvRowCountTextView.setText(String.valueOf(position));
-        holder.textView.setText(movieslist.get(position));
+
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        holder.rcvNomcomplet.setText(clientList.get(position).getIdentifiant1());
+        holder.rcvTelephone.setText(clientList.get(position).getTelephone());
 
     }
 
     @Override
     public int getItemCount() {
-        return movieslist.size();
+        return clientList.size();
     }
 
-    @Override
-    public Filter getFilter() {
-        return filter;
-    }
+    public  static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-    Filter filter = new Filter() {
+        TextView rcvNomcomplet, rcvTelephone;
 
-        // run on background thread
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-
-            List<String> filteredList = new ArrayList<>();
-
-            if (constraint.toString().isEmpty()){
-                filteredList.addAll(moviesListAll);
-            }else {
-                for (String movie : moviesListAll){
-                    if(movie.toLowerCase().contains(constraint.toString().toLowerCase())){
-                        filteredList.add(movie);
-                    }
-                }
-            }
-
-            FilterResults filterResults = new FilterResults();
-
-            filterResults.values=filteredList;
-            return filterResults;
-        }
-
-        // runs on a ui thread
-        @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
-            movieslist.clear();
-            movieslist.addAll((Collection<? extends String>) results.values);
-
-            notifyDataSetChanged();
-
-        }
-    };
-
-    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-
-        ImageView imageView;
-        TextView textView, rcvRowCountTextView;
-
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
-
-            imageView   = itemView.findViewById(R.id.imageView);
-            textView    = itemView.findViewById(R.id.rc_Nom);
-            rcvRowCountTextView= itemView.findViewById(R.id.rcv_RowCount);
+            rcvNomcomplet   = itemView.findViewById(R.id.rc_NomComplet);
+            rcvTelephone    = itemView.findViewById(R.id.rcv_Telephone);
 
             itemView.setOnClickListener(this);
-
-            itemView.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    movieslist.remove(getAdapterPosition());
-                    notifyItemRemoved(getAdapterPosition());
-
-                    return true;
-                }
-            });
-
         }
 
         @Override
         public void onClick(View v) {
-            Toast.makeText(imageView.getContext(), movieslist.get(getAdapterPosition()), Toast.LENGTH_SHORT).show();
+            Toast.makeText(itemView.getContext(),"Salut", Toast.LENGTH_SHORT).show();
         }
     }
+
+
+
+
 }
 
 

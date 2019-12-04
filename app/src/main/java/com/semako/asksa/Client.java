@@ -1,34 +1,46 @@
-package com.semako.asksa.modele;
+package com.semako.asksa;
+
+import com.google.gson.annotations.SerializedName;
+
 
 public class Client {
-    private String      referent;
 
-    private String      civilite;
 
-    private String      identifiant1;
+    @SerializedName("id")           private int id ;
 
-    private String      identifiant2;
+    @SerializedName("referent")     private String referent;
 
-    private String      numerocompte;
+    @SerializedName("civilite")     private String civilite ;
 
-    private String      description;
+    @SerializedName("identifiant1") private String identifiant1;
 
-    private String      adresserue;
+    @SerializedName("identifiant2") private String identifiant2 ;
 
-    private String      type;
+    @SerializedName("numerocompte") private String numerocompte;
 
-    private String      telephone;
+    @SerializedName("adresserue")   private String adresserue ;
 
-    private String      ville;
+    @SerializedName("type")         private String type;
 
-    private String      mail;
+    @SerializedName("telephone")    private String telephone ;
 
-    private String      slug;
+    @SerializedName("ville")        private String ville;
 
-    private String      createdOn;
+    @SerializedName("mail")         private String mail ;
 
-    private String      createdBy;
+    @SerializedName("slug")         private String slug;
 
+    @SerializedName("createdOn")    private String createdOn ;
+
+    @SerializedName("createdBy")    private String createdBy;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getReferent() {
         return referent;
@@ -68,14 +80,6 @@ public class Client {
 
     public void setNumerocompte(String numerocompte) {
         this.numerocompte = numerocompte;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getAdresserue() {
