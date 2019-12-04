@@ -20,7 +20,7 @@ public class Client {
 
     @SerializedName("adresserue")   private String adresserue ;
 
-    @SerializedName("type")         private String type;
+    @SerializedName("type")         private int type;
 
     @SerializedName("telephone")    private String telephone ;
 
@@ -90,11 +90,11 @@ public class Client {
         this.adresserue = adresserue;
     }
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         this.type = type;
     }
 

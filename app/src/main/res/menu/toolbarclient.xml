@@ -6,7 +6,7 @@
         android:id="@+id/tb_client_search"
         android:title="Recherche"
         android:icon="@drawable/ic_search"
-        app:showAsAction="always|collapseActionView"
+        app:showAsAction="ifRoom|collapseActionView"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         />
 

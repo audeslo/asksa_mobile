@@ -6,6 +6,8 @@ import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,16 +20,19 @@ import com.semako.asksa.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder>  {
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+
 
     private List<Client> clientList;
     private Context     context;
+
 
     public RecyclerAdapter(List<Client> clientList, Context context) {
         this.clientList = clientList;
         this.context = context;
     }
 
+    @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rcv_row_item,parent,false);
@@ -37,8 +42,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.rcvNomcomplet.setText(clientList.get(position).getIdentifiant1());
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
+        if ( clientList.get(position).getType() == 1){
+           holder.rcvNomcomplet.setText(String.format("%s %s",
+                   clientList.get(position).getIdentifiant1(),
+                   clientList.get(position).getIdentifiant2()));
+       }else {
+           holder.rcvNomcomplet.setText(clientList.get(position).getIdentifiant1());
+       }
+
         holder.rcvTelephone.setText(clientList.get(position).getTelephone());
 
     }
@@ -48,7 +61,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         return clientList.size();
     }
 
-    public  static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView rcvNomcomplet, rcvTelephone;
 
@@ -62,7 +77,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
         @Override
         public void onClick(View v) {
-            Toast.makeText(itemView.getContext(),"Salut", Toast.LENGTH_SHORT).show();
+            Toast.makeText(v.getContext(), clientList.get(getAdapterPosition()).getIdentifiant1(), Toast.LENGTH_SHORT).show();
         }
     }
 

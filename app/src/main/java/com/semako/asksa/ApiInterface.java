@@ -17,7 +17,7 @@ public interface ApiInterface {
 
 
     @GET("get_clients.php")
-    Call <List<Client>> getClients();
+    Call <List<Client>> getClients(@Query("key") String keyword);
 
 
 
