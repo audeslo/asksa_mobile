@@ -20,8 +20,6 @@ public class ScanCodeActivity extends AppCompatActivity implements ZXingScannerV
         super.onCreate(savedInstanceState);
         scannerView = new ZXingScannerView(this);
         setContentView(scannerView);
-
-        //scanCode();
     }
 
 

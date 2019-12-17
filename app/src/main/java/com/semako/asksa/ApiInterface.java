@@ -1,7 +1,6 @@
 package com.semako.asksa;
 
-import android.util.Log;
-
+import com.semako.asksa.modele.Client;
 import com.semako.asksa.modele.Vente;
 
 import java.util.List;

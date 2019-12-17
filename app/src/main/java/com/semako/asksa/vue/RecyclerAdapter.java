@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.semako.asksa.Client;
+import com.semako.asksa.modele.Client;
 import com.semako.asksa.R;
 
 import java.util.List;
